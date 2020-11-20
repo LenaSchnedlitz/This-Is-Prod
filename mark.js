@@ -26,8 +26,8 @@ function markEnvironment(envLabel, envUrls) {
 
     const styleSheet = document.createElement('style');
     styleSheet.innerText = ''
-        + '.this-is-prod--wrapper{position:sticky;top:0;z-index:9000;display:flex;padding:.4rem;background-color:blue;box-shadow:4px 4px 0 0 magenta;}'
-        + '.this-is-prod--message{position:relative;margin:0 auto;width:auto;font-family:"Consolas","Menlo","Inconsolata",monospace;font-size:1.2rem;color:#ff0c;text-shadow:0 0 1px #ff06,0 0 2px #fffc;}'
+        + '.this-is-prod--wrapper{position:sticky;top:0;z-index:9000;display:flex;padding:8px;background-color:blue;box-shadow:40px 4px 0 0 magenta;}'
+        + '.this-is-prod--message{position:relative;margin:0 auto;width:auto;font-family:"Consolas","Menlo","Inconsolata",monospace;font-size:18px;color:#ff0c;text-shadow:0 0 1px #ff06,0 0 2px #fffc;}'
         + '.this-is-prod--message:before,.this-is-prod--message:after{position:absolute;top:0;overflow:hidden;clip:rect(0,900px,0,0);content:attr(data-text);background:blue;color:yellow;white-space:nowrap}'
         + '.this-is-prod--message:before{left:-2px;text-shadow:1px 0 cyan;animation:noise1 3s infinite linear alternate-reverse;}'
         + '.this-is-prod--message:after{left:2px;text-shadow:-1px 0 magenta;animation:noise2 2s infinite linear alternate-reverse;}'
