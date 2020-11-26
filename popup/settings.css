@@ -1,0 +1,89 @@
+html,
+button,
+.environment-input {
+  font-family: "Consolas", "Menlo", "Inconsolata", monospace;
+}
+
+.environment-list,
+.url-list {
+  margin: 0;
+  padding: 0;
+}
+
+.environment,
+.url {
+  list-style: none;
+}
+
+/* INPUT */
+
+.environment-input,
+.url-input {
+  box-sizing: border-box;
+  padding-left: 0.5rem;
+  width: 100%;
+  border: solid 1px #ddd;
+  border-radius: 2px;
+  caret-color: blue;
+}
+
+.environment-input {
+  margin-bottom: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 2rem;
+  text-transform: uppercase;
+}
+
+.url-input {
+  margin: 1px 0;
+  font-family: sans-serif;
+  line-height: 1.4rem;
+}
+
+/* BUTTONS */
+
+.plus-environment {
+  margin-top: 10px;
+  margin-bottom: 2px;
+  padding: 6px 0;
+  width: 100%;
+  background: blue;
+  border: none;
+  color: #fff;
+  box-shadow: 4px 4px 0 0 magenta;
+  transition: all 100ms;
+}
+
+.plus-environment:hover {
+  box-shadow: 6px 6px 0 0 magenta;
+}
+
+.plus-environment:active {
+  box-shadow: 2px 2px 0 0 magenta;
+  transform: scale(0.95);
+}
+
+.plus-url {
+  margin: 5px 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+
+.plus-url:not(:last-child) {
+  margin-bottom: 25px;
+}
+
+.plus-url-symbol {
+  color: blue;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.plus-url:hover,
+.plus-url:hover .plus-url-symbol {
+  color: magenta;
+}

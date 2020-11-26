@@ -6,6 +6,11 @@
   "icons": {
     "48": "icons/icon-48.png"
   },
+  "browser_action": {
+    "default_icon": "icons/icon-32.png",
+    "default_title": "TODO",
+    "default_popup": "popup/settings.html"
+  },
   "browser_specific_settings": {
     "gecko": {
       "id": "{c1e25eb4-feb1-4a88-a582-9dd0dd42ed2b}"
