@@ -2,12 +2,12 @@ const environments = {
   PROD: [''],
 };
 
-const parent = document.getElementById('parent');
-
+const container = document.getElementById('parent');
 Object.entries(environments).forEach(env => appendEnvironment(...env));
 
 function appendEnvironment(initialName) {
   let name = initialName;
+  let listParent;
 
   function input() {
     const inputElement = document.createElement('input');
@@ -31,39 +31,45 @@ function appendEnvironment(initialName) {
   }
 
   function urlList() {
-    function input(value, idx) {
-      const input = document.createElement('input');
-      Object.assign(input, {
-        className: 'url-input',
-        placeholder: 'https://your-url-here...',
-        type: 'text',
-        value,
-        onchange: (e) => {
-          environments[name][idx] = e.target.value;
-          console.debug(environments)
-        }
-      });
-
-      const label = document.createElement('label');
-      label.appendChild(input);
-
-      const wrapper = document.createElement('li');
-      wrapper.className = 'url';
-      wrapper.appendChild(label);
-      return wrapper;
-    }
-
     const ul = document.createElement('ul');
     environments[name].forEach((url, idx) => {
-      ul.appendChild(input(url, idx))
+      ul.appendChild(urlInput(url, idx))
     });
     ul.className = 'url-list';
+    listParent = ul;
     return ul;
+  }
+
+  function urlInput(value, idx) {
+    const input = document.createElement('input');
+    Object.assign(input, {
+      className: 'url-input',
+      placeholder: 'https://your-url-here...',
+      type: 'text',
+      value,
+      onchange: (e) => {
+        environments[name][idx] = e.target.value;
+        console.debug(environments)
+      }
+    });
+
+    const label = document.createElement('label');
+    label.appendChild(input);
+
+    const wrapper = document.createElement('li');
+    wrapper.className = 'url';
+    wrapper.appendChild(label);
+    return wrapper;
   }
 
   function addButton() {
     const button = document.createElement('button');
     button.className = 'plus-url';
+    button.onclick = () => {
+      environments[name].push('');
+      listParent.appendChild(urlInput('', environments[name].length - 1));
+      console.debug(environments);
+    };
 
     const symbol = document.createElement('span');
     symbol.className = 'plus-url-symbol';
@@ -77,7 +83,7 @@ function appendEnvironment(initialName) {
     return button;
   }
 
-  parent.appendChild(input());
-  parent.appendChild(urlList());
-  parent.appendChild(addButton());
+  container.appendChild(input());
+  container.appendChild(urlList());
+  container.appendChild(addButton());
 }
