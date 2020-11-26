@@ -6,17 +6,31 @@ const parent = document.getElementById('parent');
 
 Object.entries(environments).forEach(env => appendEnvironment(...env));
 
-function appendEnvironment(envName) {
-  function input(props) {
+function appendEnvironment(initialName) {
+  let name = initialName;
+
+  function input() {
     const inputElement = document.createElement('input');
-    Object.assign(inputElement, {type: 'text', className: 'environment-input', ...props});
+    Object.assign(inputElement, {
+      className: 'environment-input',
+      placeholder: 'PROD',
+      type: 'text',
+      value: name,
+      onchange: (e) => {
+        const newName = e.target.value;
+        environments[newName] = environments[name];
+        delete environments[name];
+        name = newName;
+        console.debug(environments)
+      }
+    });
 
     const wrapper = document.createElement('label');
     wrapper.appendChild(inputElement);
     return wrapper;
   }
 
-  function urlList(urls) {
+  function urlList() {
     function input(value, idx) {
       const input = document.createElement('input');
       Object.assign(input, {
@@ -25,7 +39,7 @@ function appendEnvironment(envName) {
         type: 'text',
         value,
         onchange: (e) => {
-          environments[envName][idx] = e.target.value;
+          environments[name][idx] = e.target.value;
           console.debug(environments)
         }
       });
@@ -40,10 +54,10 @@ function appendEnvironment(envName) {
     }
 
     const ul = document.createElement('ul');
-    ul.className = 'url-list';
-    urls.forEach((url, idx) => {
+    environments[name].forEach((url, idx) => {
       ul.appendChild(input(url, idx))
     });
+    ul.className = 'url-list';
     return ul;
   }
 
@@ -63,7 +77,7 @@ function appendEnvironment(envName) {
     return button;
   }
 
-  parent.appendChild(input({placeholder: 'PROD', value: envName}));
-  parent.appendChild(urlList(environments[envName]));
+  parent.appendChild(input());
+  parent.appendChild(urlList());
   parent.appendChild(addButton());
 }
