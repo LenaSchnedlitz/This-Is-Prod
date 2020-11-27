@@ -43,7 +43,7 @@ button,
 
 /* BUTTONS */
 
-.plus-environment {
+.environment-add {
   margin-top: 10px;
   margin-bottom: 2px;
   padding: 6px 0;
@@ -55,16 +55,16 @@ button,
   transition: all 100ms;
 }
 
-.plus-environment:hover {
+.environment-add:hover {
   box-shadow: 6px 6px 0 0 magenta;
 }
 
-.plus-environment:active {
+.environment-add:active {
   box-shadow: 2px 2px 0 0 magenta;
   transform: scale(0.95);
 }
 
-.plus-url {
+.url-add {
   margin: 5px 0;
   padding: 0;
   background: transparent;
@@ -73,17 +73,17 @@ button,
   cursor: pointer;
 }
 
-.plus-url:not(:last-child) {
+.url-add:not(:last-child) {
   margin-bottom: 25px;
 }
 
-.plus-url-symbol {
+.url-add-symbol {
   color: blue;
   font-size: 1rem;
   font-weight: bold;
 }
 
-.plus-url:hover,
-.plus-url:hover .plus-url-symbol {
+.url-add:hover,
+.url-add:hover .url-add-symbol {
   color: magenta;
 }

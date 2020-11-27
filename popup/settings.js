@@ -3,9 +3,9 @@ const environments = {
 };
 
 const container = document.getElementById('parent');
-Object.entries(environments).forEach(env => appendEnvironment(...env));
+Object.entries(environments).forEach(env => displayEnvironment(...env));
 
-function appendEnvironment(initialName) {
+function displayEnvironment(initialName) {
   let name = initialName;
   let listParent;
 
@@ -64,7 +64,7 @@ function appendEnvironment(initialName) {
 
   function addButton() {
     const button = document.createElement('button');
-    button.className = 'plus-url';
+    button.className = 'url-add';
     button.onclick = () => {
       environments[name].push('');
       listParent.appendChild(urlInput('', environments[name].length - 1));
@@ -72,7 +72,7 @@ function appendEnvironment(initialName) {
     };
 
     const symbol = document.createElement('span');
-    symbol.className = 'plus-url-symbol';
+    symbol.className = 'url-add-symbol';
     symbol.innerText = '+';
 
     const label = document.createElement('span');
@@ -87,3 +87,10 @@ function appendEnvironment(initialName) {
   container.appendChild(urlList());
   container.appendChild(addButton());
 }
+
+document.getElementById('addButton')
+  .addEventListener('click', () => {
+    const defaultName = `ENV-0${Object.keys(environments).length + 1}`;
+    environments[defaultName] = [''];
+    displayEnvironment(defaultName);
+  });
