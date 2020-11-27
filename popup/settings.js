@@ -1,5 +1,5 @@
 browser.storage.sync.get('environments').then((stored) => {
-  const environments = stored ||{
+  const environments = stored || {
     PROD: ['']
   };
 
