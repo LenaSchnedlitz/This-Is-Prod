@@ -16,7 +16,7 @@ function markEnvironment(envLabel, envUrls) {
 
     const message = document.createElement('div');
     message.classList.add('this-is-prod--message');
-    message.innerHTML = prefix;
+    message.innerText = prefix;
     message.setAttribute('data-text', `${prefix}${labelTag}`);
     message.appendChild(emphasis);
 
