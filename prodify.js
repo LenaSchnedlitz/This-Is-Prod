@@ -1,6 +1,6 @@
 // TODO
 const environments = {
-  prod: [],
+  p: ['https://www.lenaschnedlitz.me'],
 };
 
 
