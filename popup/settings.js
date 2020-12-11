@@ -1,7 +1,6 @@
-browser.storage.sync.get('environments').then((stored) => {
-  const environments = stored || {
-    PROD: ['']
-  };
+(async () => {
+  const stored = await browser.storage.sync.get();
+  const environments = stored.environments || {PROD: ['']};
 
   const container = document.getElementById('parent');
   Object.entries(environments).forEach(([name, urls]) => {
@@ -15,7 +14,7 @@ browser.storage.sync.get('environments').then((stored) => {
     let name = initialName;
     let listParent;
 
-    function input() {
+    function title() {
       const inputElement = document.createElement('input');
       Object.assign(inputElement, {
         className: 'environment-input',
@@ -89,17 +88,16 @@ browser.storage.sync.get('environments').then((stored) => {
       return button;
     }
 
-    container.appendChild(input());
+    container.appendChild(title());
     container.appendChild(urlList());
     container.appendChild(addButton());
   }
 
-  document.getElementById('addButton')
-  .addEventListener('click', () => {
+  document.getElementById('addButton').addEventListener('click', () => {
     const defaultName = `ENV-0${Object.keys(environments).length + 1}`;
     environments[defaultName] = [''];
     browser.storage.sync.set({environments});
     displayEnvironment(defaultName);
   });
 
-});
+})();
