@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/LenaSchnedlitz/this-is-prod/blob/master/icons/icon-full-size.png"/>
+  <img src="https://github.com/LenaSchnedlitz/this-is-prod/blob/main/icons/icon-full-size.png"/>
 </p>
 
 # THIS IS PROD
@@ -10,6 +10,6 @@
 
 Mark production (or test/staging/whatever/...) environments to avoid confusion.
 
-![Demo picture](https://github.com/LenaSchnedlitz/this-is-prod/blob/master/preview_banner.png)
+![Demo picture](https://github.com/LenaSchnedlitz/this-is-prod/blob/main/preview_banner.png)
 
 [>>> Click here to download <<<](https://addons.mozilla.org/firefox/addon/this-is-prod/)
