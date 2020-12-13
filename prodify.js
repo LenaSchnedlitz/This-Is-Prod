@@ -1,6 +1,6 @@
 (async () => {
   const stored = await browser.storage.sync.get();
-  const environments = stored.environments || {PROD: ['']};
+  const environments = stored.environments || {};
 
   const prefix = 'THIS IS ';
 

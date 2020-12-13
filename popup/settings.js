@@ -1,14 +1,23 @@
 (async () => {
-  const stored = await browser.storage.sync.get();
-  const environments = stored.environments || {PROD: ['']};
-
   const container = document.getElementById('parent');
-  Object.entries(environments).forEach(([name, urls]) => {
-    if (urls.length > 1) {
-      environments[name] = urls.filter(url => !!url);
+  const stored = await browser.storage.sync.get();
+  const environments = sanitize(stored.environments);
+
+  function sanitize(envDict) {
+    const sanitized = {};
+
+    Object.entries(envDict || {}).forEach(([name, urls]) => {
+      if (name) {
+        sanitized[name] = urls.length <= 1 ? urls : urls.filter(url => !!url);
+      }
+    });
+
+    if (Object.keys(sanitized).length < 1) {
+      sanitized.PROD = [''];  // dict is empty -> add default value
     }
-    displayEnvironment(name)
-  });
+
+    return sanitized;
+  }
 
   function displayEnvironment(initialName) {
     let name = initialName;
@@ -92,6 +101,8 @@
     container.appendChild(urlList());
     container.appendChild(addButton());
   }
+
+  Object.keys(environments).forEach(displayEnvironment);
 
   document.getElementById('addButton').addEventListener('click', () => {
     const defaultName = `ENV-0${Object.keys(environments).length + 1}`;

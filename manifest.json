@@ -2,7 +2,7 @@
   "description": "Mark production (or test) environments to avoid confusion",
   "manifest_version": 2,
   "name": "THIS IS PROD",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "icons": {
     "48": "icons/icon-48.png"
   },
