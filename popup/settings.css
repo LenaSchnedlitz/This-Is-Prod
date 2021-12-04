@@ -1,7 +1,7 @@
 html,
 button,
 .environment-input {
-  font-family: "Consolas", "Menlo", "Inconsolata", monospace;
+  font-family: 'Consolas', 'Menlo', 'Inconsolata', monospace;
 }
 
 .environment-list,

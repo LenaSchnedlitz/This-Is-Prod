@@ -8,12 +8,12 @@
 
     Object.entries(envDict || {}).forEach(([name, urls]) => {
       if (name) {
-        sanitized[name] = urls.length <= 1 ? urls : urls.filter(url => !!url);
+        sanitized[name] = urls.length <= 1 ? urls : urls.filter((url) => !!url);
       }
     });
 
     if (Object.keys(sanitized).length < 1) {
-      sanitized.PROD = [''];  // dict is empty -> add default value
+      sanitized.PROD = ['']; // dict is empty -> add default value
     }
 
     return sanitized;
@@ -35,8 +35,8 @@
           environments[newName] = environments[name];
           delete environments[name];
           name = newName;
-          browser.storage.sync.set({environments});
-        }
+          browser.storage.sync.set({ environments });
+        },
       });
 
       const wrapper = document.createElement('label');
@@ -47,7 +47,7 @@
     function urlList() {
       const ul = document.createElement('ul');
       environments[name].forEach((url, idx) => {
-        ul.appendChild(urlInput(url, idx))
+        ul.appendChild(urlInput(url, idx));
       });
       ul.className = 'url-list';
       listParent = ul;
@@ -63,8 +63,8 @@
         value,
         onchange: (e) => {
           environments[name][idx] = e.target.value;
-          browser.storage.sync.set({environments});
-        }
+          browser.storage.sync.set({ environments });
+        },
       });
 
       const label = document.createElement('label');
@@ -81,7 +81,7 @@
       button.className = 'url-add';
       button.onclick = () => {
         environments[name].push('');
-        browser.storage.sync.set({environments});
+        browser.storage.sync.set({ environments });
         listParent.appendChild(urlInput('', environments[name].length - 1));
       };
 
@@ -107,8 +107,7 @@
   document.getElementById('addButton').addEventListener('click', () => {
     const defaultName = `ENV-0${Object.keys(environments).length + 1}`;
     environments[defaultName] = [''];
-    browser.storage.sync.set({environments});
+    browser.storage.sync.set({ environments });
     displayEnvironment(defaultName);
   });
-
 })();

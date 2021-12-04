@@ -18,16 +18,9 @@
   },
   "content_scripts": [
     {
-      "matches": [
-        "*://*/*"
-      ],
-      "js": [
-        "prodify.js"
-      ]
+      "matches": ["*://*/*"],
+      "js": ["prodify.js"]
     }
   ],
-  "permissions": [
-    "activeTab",
-    "storage"
-  ]
+  "permissions": ["activeTab", "storage"]
 }
