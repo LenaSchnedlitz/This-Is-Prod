@@ -1,12 +1,11 @@
-<p align="center">
-  <img src="https://github.com/LenaSchnedlitz/this-is-prod/blob/main/icons/icon-full-size.png"/>
-</p>
+<div align="center">
+  <img src="icons/icon-full-size.png"/>
+</div>
 
 # THIS IS PROD
 
 [![forthebadge](https://forthebadge.com/images/badges/built-by-developers.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/contains-tasty-spaghetti-code.svg)](https://forthebadge.com)
-
 
 Mark production (or test/staging/whatever/...) environments to avoid confusion.
 
