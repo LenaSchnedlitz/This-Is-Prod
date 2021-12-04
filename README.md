@@ -4,8 +4,8 @@
 
 # THIS IS PROD
 
-[![forthebadge](https://forthebadge.com/images/badges/built-by-developers.svg)](https://forthebadge.com)
-[![forthebadge](https://forthebadge.com/images/badges/contains-tasty-spaghetti-code.svg)](https://forthebadge.com)
+[![Fake Badge](https://forthebadge.com/images/badges/built-by-developers.svg)](https://forthebadge.com)
+[![Second Fake Badge](https://forthebadge.com/images/badges/contains-tasty-spaghetti-code.svg)](https://forthebadge.com)
 
 Mark production (or test/staging/whatever/...) environments to avoid confusion.
 
